@@ -6,7 +6,7 @@ def get_mask_card_number(card_number: int) -> str:
     :return: Маска номера карты.
     """
     card_str = str(card_number)
-    return f"XXXX XX{card_str[-4:-2]} **** {card_str[-4:]}"
+    return f"{card_str[:4]} {card_str[4:6]}** **** {card_str[-4:]}"
 
 
 def get_mask_account(account_number: int) -> str:
