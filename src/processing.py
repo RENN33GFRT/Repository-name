@@ -21,19 +21,10 @@ def mask_account_card(account_info: str) -> str:
 
 def get_date(date_str: str) -> str:
     """
-
+    Преобразует строку даты в формат ДД.ММ.ГГГГ.
     """
     year = date_str[0:4]
     month = date_str[5:7]
     day = date_str[8:10]
+
     return f"{day}.{month}.{year}"
-
-
-print(mask_account_card('Maestro 1596837868705199'))
-
-
-print(mask_account_card('Maestro 1596837868705199'))
-print(mask_account_card('Visa Classic 6831982476737658'))
-print(mask_account_card('Visa Gold 5999414228426353'))
-print(mask_account_card('Счет 73654108430135874305'))
-print(get_date('2024-03-11T02:26:18.671407'))
