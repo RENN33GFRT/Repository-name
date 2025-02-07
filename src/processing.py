@@ -1,5 +1,5 @@
 def mask_account_card(account_info: str) -> str:
-    """
+    """ 
     Маскирует номер карты или счета, показывая только часть информации.
     """
     last_index = 0
