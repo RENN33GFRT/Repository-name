@@ -1,39 +1,34 @@
-def mask_account_card(account_info: str) -> str:
-    """
-    Маскирует номер карты или счета, показывая только часть информации.
-    """
-    last_index = 0
+from src import masks
 
-    for i in range(len(account_info)):
-        if account_info[i] == ' ':
-            last_index = i
 
-    card_type = account_info[:last_index]
-    card_number = account_info[last_index + 1:]
-
-    if 'Счет' in card_type:
-        masked_number = f"{card_type} **{card_number[-4:]}"
+def mask_account_card(card_inf: str) -> str:
+    """Обрабатывает информацию как о картах, так и о счетах
+    Возвращает строку с замаскированным номером"""
+    index = 0
+    card_inf = str(card_inf)
+    for character in card_inf:
+        if character.isdigit():
+            break
+        else:
+            index += 1
+    if card_inf[: index - 1] == "Счет":
+        if len(card_inf[index:]) == 20 and card_inf[index:].isdigit():
+            return card_inf[: index - 1] + " " + masks.get_mask_account(card_inf[index:])
+        else:
+            return "Error"
     else:
-        masked_number = f"{card_type} {card_number[:4]} {card_number[4:6]}** **** {card_number[-4:]}"
-
-    return masked_number
-
-
-def get_date(date_str: str) -> str:
-    """
-
-    """
-    year = date_str[0:4]
-    month = date_str[5:7]
-    day = date_str[8:10]
-    return f"{day}.{month}.{year}"
+        if len(card_inf[index:]) == 16 and card_inf[index:].isdigit():
+            return card_inf[: index - 1] + " " + masks.get_mask_card_number(card_inf[index:])
+        else:
+            return "Error"
 
 
-print(mask_account_card('Maestro 1596837868705199'))
-
-
-print(mask_account_card('Maestro 1596837868705199'))
-print(mask_account_card('Visa Classic 6831982476737658'))
-print(mask_account_card('Visa Gold 5999414228426353'))
-print(mask_account_card('Счет 73654108430135874305'))
-print(get_date('2024-03-11T02:26:18.671407'))
+def get_date(date: str) -> str:
+    """Функция, которая принимает на вход строку с датой в формате
+    "2024-03-11T02:26:18.671407"
+    и возвращает строку с датой в формате "ДД.ММ.ГГГГ" """
+    year, month, day = date[:10].split("-")
+    if year.isdigit() and month.isdigit() and day.isdigit():
+        return f"{day}.{month}.{year}"
+    else:
+        return "Error"
