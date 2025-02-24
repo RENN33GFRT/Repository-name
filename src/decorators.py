@@ -39,3 +39,4 @@ def log(filename=None):
         return wrapper
 
     return decorator
+'эта н существует тока потому что кое-кто нитуда закамитил'

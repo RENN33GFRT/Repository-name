@@ -45,3 +45,5 @@ def test_log_content():
 def teardown_module(module):
     if os.path.exists(LOGFILE):
         os.remove(LOGFILE)
+
+'эта н существует тока потому что кое-кто нитуда закамитил'
