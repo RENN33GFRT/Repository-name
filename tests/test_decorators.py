@@ -29,3 +29,4 @@ def test_log_file():
     test_function(1, "10")
     text = open(filename, "r")
     assert text.read() == """test_function error:TypeError. Inputs: (1, '10'), {}"""
+    "n"

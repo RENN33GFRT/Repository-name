@@ -1,0 +1,2 @@
+2025-02-26 11:42:09,714 - INFO - Starting function: test_function with arguments: (1, 10), {}
+2025-02-26 11:42:09,724 - INFO - Function: test_function completed successfully with result: 11
