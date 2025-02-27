@@ -105,3 +105,4 @@ def test_file_writing_error(capsys, monkeypatch):
     captured = capsys.readouterr()
     assert "" in captured.out
     teardown_method()
+"n"
