@@ -1,5 +1,7 @@
-import pytest
 import os
+
+import pytest
+
 from src.decorators import log  # Замените your_module на имя вашего файла
 
 
@@ -8,13 +10,16 @@ from src.decorators import log  # Замените your_module на имя ва�
 def my_function(a, b):
     return a + b
 
+
 @log()
 def my_function_no_file(a, b):
     return a + b
 
+
 @log(filename="test.log")
 def my_function_with_error(a, b):
     raise ValueError("Test error")
+
 
 @log()
 def my_function_with_error_no_file(a, b):
@@ -48,7 +53,7 @@ def test_log_success_with_file(capsys):
     # Проверяем, что ничего не было выведено в stdout
     captured = capsys.readouterr()
     assert captured.out == ""
-    teardown_method() # Вызываем teardown после теста
+    teardown_method()  # Вызываем teardown после теста
 
 
 def test_log_success_no_file(capsys):
@@ -93,6 +98,7 @@ def test_log_error_no_file(capsys):
 def test_file_writing_error(capsys, monkeypatch):
     """Тест обработки ошибки при записи в файл."""
     setup_method()
+
     # Мокируем open, чтобы вызвать исключение при записи
     def mock_open(*args, **kwargs):
         raise IOError("Mocked file writing error")
@@ -105,4 +111,6 @@ def test_file_writing_error(capsys, monkeypatch):
     captured = capsys.readouterr()
     assert "" in captured.out
     teardown_method()
+
+
 "n"

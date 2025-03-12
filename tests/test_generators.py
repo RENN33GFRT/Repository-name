@@ -1,7 +1,7 @@
 import pytest
 
-from src.generators import transactions
 from src import generators
+from src.generators import transactions
 
 
 @pytest.mark.parametrize(

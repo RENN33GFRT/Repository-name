@@ -32,5 +32,8 @@ def log(filename=None):
             return result
 
         return wrapper
+
     return decorator
+
+
 "n"
