@@ -2,7 +2,6 @@ import os
 from unittest.mock import patch
 
 from dotenv import load_dotenv
-
 from src.external_api import get_transaction_amount
 
 

@@ -2,8 +2,6 @@ from src import masks
 
 
 def mask_account_card(card_inf: str) -> str:
-    """Обрабатывает информацию как о картах, так и о счетах
-    Возвращает строку с замаскированным номером"""
     index = 0
     card_inf = str(card_inf)
     for character in card_inf:
@@ -24,9 +22,6 @@ def mask_account_card(card_inf: str) -> str:
 
 
 def get_date(date: str) -> str:
-    """Функция, которая принимает на вход строку с датой в формате
-    "2024-03-11T02:26:18.671407"
-    и возвращает строку с датой в формате "ДД.ММ.ГГГГ" """
     year, month, day = date[:10].split("-")
     if year.isdigit() and month.isdigit() and day.isdigit():
         return f"{day}.{month}.{year}"
