@@ -19,7 +19,6 @@ def get_transaction_amount(transaction_info, currency="RUB"):
 
     response = requests.get(url, headers=headers)
 
-    status_code = response.status_code
     result = response.text
     return result
 
