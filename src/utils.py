@@ -31,7 +31,7 @@ def get_transactions(file_path):
                 logger.error(f"Ошибка декодирования JSON в файле: {file_path}",
                              exc_info=True)
                 return []
-    except Exception as e:#я не знаю как это фиксить так что пусть будет(я про Flake8)
+    except Exception as e:  # я не знаю как это фиксить так что пусть будет(я про Flake8)
         logger.error(f"Произошла ошибка при работе с файлом: {file_path}", exc_info=True)
         return []
 
