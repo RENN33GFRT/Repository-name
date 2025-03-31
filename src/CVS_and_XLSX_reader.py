@@ -39,7 +39,3 @@ def XLSX_file_read(file_path):
         return list_of_dicts
     except FileNotFoundError:
         return "Файл не найден"
-
-
-print(CSV_file_read("..\\data\\transactions.csv"))
-print(XLSX_file_read('..\\data\\transactions_excel.xlsx'))

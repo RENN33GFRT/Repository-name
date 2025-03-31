@@ -34,13 +34,3 @@ def get_transactions(file_path):
     except Exception as e:  # я не знаю как это фиксить так что пусть будет(я про Flake8)
         logger.error(f"Произошла ошибка при работе с файлом: {file_path}", exc_info=True)
         return []
-
-
-if __name__ == '__main__':
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    path = os.path.join(current_dir, "..", "data", "transactions.json")
-    transactions = get_transactions(path)
-    if transactions:
-        print(f"Найдено {len(transactions)} транзакций.")
-    else:
-        print("Транзакции не найдены.")

@@ -92,7 +92,7 @@ from src.generators import transactions
     ],
 )
 def test_filter_by_currency(transactions, currency, expected):
-    assert list(generators.filter_by_currency(transactions, currency)) == expected
+    assert list(generators.filter_by_currency_json(transactions, currency)) == expected
 
 
 def test_transaction_descriptions():
