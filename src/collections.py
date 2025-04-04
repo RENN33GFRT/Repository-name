@@ -22,4 +22,3 @@ def category_count(transactions: list, categories: list) -> dict:
         sorted_dict[i] = counted[i]
 
     return dict(sorted_dict)
-"n"
